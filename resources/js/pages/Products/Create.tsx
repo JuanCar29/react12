@@ -32,7 +32,7 @@ export default function ProductCreate() {
         description: '',
     });
 
-    const submit = (e) => {
+    const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         post(route('products.store'));
     };
@@ -58,7 +58,6 @@ export default function ProductCreate() {
                                         name="name"
                                         value={data.name}
                                         onChange={(e) => setData('name', e.target.value)}
-                                        required
                                         className={errors.name ? 'border-red-500' : ''}
                                     />
                                     {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
@@ -71,7 +70,6 @@ export default function ProductCreate() {
                                         name="stock"
                                         value={data.stock}
                                         onChange={(e) => setData('stock', e.target.value)}
-                                        required
                                         className={errors.stock ? 'border-red-500' : ''}
                                     />
                                     {errors.stock && <div className="text-red-500 text-sm mt-1">{errors.stock}</div>}
@@ -85,7 +83,6 @@ export default function ProductCreate() {
                                         step="0.01" // Permite decimales
                                         value={data.price}
                                         onChange={(e) => setData('price', e.target.value)}
-                                        required
                                         className={errors.price ? 'border-red-500' : ''}
                                     />
                                     {errors.price && <div className="text-red-500 text-sm mt-1">{errors.price}</div>}

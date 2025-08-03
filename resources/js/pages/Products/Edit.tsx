@@ -33,7 +33,7 @@ export default function ProductEdit({ auth, product }) {
         description: product.description || '',
     });
 
-    const submit = (e) => {
+    const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         put(route('products.update', product.id));
     };
@@ -59,7 +59,6 @@ export default function ProductEdit({ auth, product }) {
                                         name="name"
                                         value={data.name}
                                         onChange={(e) => setData('name', e.target.value)}
-                                        required
                                         className={errors.name ? 'border-red-500' : ''}
                                     />
                                     {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}
@@ -72,7 +71,6 @@ export default function ProductEdit({ auth, product }) {
                                         name="stock"
                                         value={data.stock}
                                         onChange={(e) => setData('stock', e.target.value)}
-                                        required
                                         className={errors.stock ? 'border-red-500' : ''}
                                     />
                                     {errors.stock && <div className="text-red-500 text-sm mt-1">{errors.stock}</div>}
@@ -86,7 +84,6 @@ export default function ProductEdit({ auth, product }) {
                                         step="0.01" // Permite decimales
                                         value={data.price}
                                         onChange={(e) => setData('price', e.target.value)}
-                                        required
                                         className={errors.price ? 'border-red-500' : ''}
                                     />
                                     {errors.price && <div className="text-red-500 text-sm mt-1">{errors.price}</div>}
